@@ -7,7 +7,6 @@ import Footer from "@/components/01-commoncomponents/Footer";
 import PopUp from "@/components/05-popup/PopUp";
 
 function Home({ data }) {
-  console.log("data sssssssss", data);
   return (
     <>
       <Head>

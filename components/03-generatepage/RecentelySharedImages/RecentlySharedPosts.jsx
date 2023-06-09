@@ -9,8 +9,6 @@ import Loading from "@/components/02-homepage/ShowCaseSection/Loading";
 function RecentlySharedPosts({ data, recentPosts, setRecentPosts }) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  console.log("data retrieved", data);
-  console.log("data retrieved2", recentPosts);
 
   const [ref, inView] = useInView({
     threshold: 0,

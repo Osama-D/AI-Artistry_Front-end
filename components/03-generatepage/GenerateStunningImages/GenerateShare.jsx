@@ -20,7 +20,6 @@ function GenerateShare({ form, loading, setRecentPosts }) {
         .then((data) => {
           // once you generate the desired image put in the state so it gets added instantly in your state (without refreshing the page)
           setRecentPosts((prevPosts) => [data.data, ...prevPosts]);
-          console.log("data", data);
         })
         .catch((error) => {
           console.log("error", error);

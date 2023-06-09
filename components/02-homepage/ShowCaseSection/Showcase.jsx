@@ -24,9 +24,6 @@ function Showcase({ data }) {
     setPosts(data.documents);
   }, [data]);
 
-  console.log("home posts 1", data);
-  console.log("home posts", posts);
-
   // each time user see the loader the page will jump +1
   useEffect(() => {
     if (inView && !isFetching && posts.length >= 8) {
@@ -70,9 +67,6 @@ function Showcase({ data }) {
               if (data?.data?.documents.length === data?.data?.total) {
                 setLoading(false);
               }
-
-              console.log("home posts vvvvvvvvvv", data);
-              console.log("home posts vvvvvvvvvv1", posts);
             })
             .catch((error) => console.error(error))
             .finally(() => setIsFetching(false));
@@ -92,7 +86,6 @@ function Showcase({ data }) {
       setLoading(false);
     }
   }, [posts]);
-  console.log("isfetching", isFetching);
 
   return (
     <div className="lining m-auto flex flex-col gap-y-[70px] sm:gap-y-[80px] md:gap-y-[150px]">
