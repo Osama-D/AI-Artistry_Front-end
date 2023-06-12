@@ -30,6 +30,7 @@ function ClickedSlider({ sliderPopUp, setSliderPopUp, set_my_swiper }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // download logic
   function downloadImage(_id, photo) {
     const httpsUrl = photo.replace("http://", "https://");
     FileSaver.saveAs(httpsUrl, `download-${_id}.jpg`);

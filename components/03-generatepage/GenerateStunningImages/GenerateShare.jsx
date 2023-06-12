@@ -5,7 +5,7 @@ function GenerateShare({ form, loading, setRecentPosts }) {
   const [active, setActive] = useState(false);
 
   function handleSubmit() {
-    // if everything is valid start generating
+    // if everything is valid start sharing
     if (form.prompt && form.photo && form.name) {
       setShareLoading(true);
 
@@ -18,7 +18,7 @@ function GenerateShare({ form, loading, setRecentPosts }) {
       })
         .then((res) => res.json())
         .then((data) => {
-          // once you generate the desired image put in the state so it gets added instantly in your state (without refreshing the page)
+          // once you shared the desired image put in the state so it gets added instantly in your state (without refreshing the page)
           setRecentPosts((prevPosts) => [data.data, ...prevPosts]);
         })
         .catch((error) => {

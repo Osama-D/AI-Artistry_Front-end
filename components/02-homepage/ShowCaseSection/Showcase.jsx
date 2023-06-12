@@ -101,7 +101,7 @@ function Showcase({ data }) {
         {/* if no posts show not found */}
         {!posts?.length && !isFetching && !loading && <NoPosts />}
 
-        {/* one loading when there is posts and one loading when searching for posts (no posts) */}
+        {/* one loading when there is posts and one loading when searching for posts */}
         {!posts?.length ? (
           <div
             className={
