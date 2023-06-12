@@ -25,17 +25,17 @@ AI-Artistry offers the following features:
 
 ## Demo
 
-Check out our Behance page at [Behance](https://www.behance.net/gallery/164648805/AI-Image-Generator-Website-UI-Development) to see a visual showcase of AI-Artistry in action.
+Check out Behance page at [Behance](https://www.behance.net/gallery/164648805/AI-Image-Generator-Website-UI-Development) to see a visual showcase of AI-Artistry in action.
 
 You can also visit the live website at [AI-Artistry](https://ai-artistry.vercel.app) to explore the image generation and showcase features.
 
 ## Installation
 
-To run AI-Artistry locally, you need to connect the front-end with the backend. Follow these steps:
+To run AI-Artistry locally, you need to connect the front-end with the back-end. Follow these steps:
 
 1. Clone the front-end repository: git clone https://github.com/Osama-D/AI-Artistry_Front-end.git
-2. Clone the backend repository: git clone https://github.com/Osama-D/AI-Artistry_Back-end.git
-3. Install the dependencies for the front-end and the backend:
+2. Clone the back-end repository: git clone https://github.com/Osama-D/AI-Artistry_Back-end.git
+3. Install the dependencies for the front-end and the back-end:
 
 - Front-end:
    
@@ -57,7 +57,7 @@ To run AI-Artistry locally, you need to connect the front-end with the backend. 
     npm install
     ```
 
-4. Start the development server for the front-end and the backend:
+4. Start the development server for the front-end and the back-end:
 
 - Front-end:
     
@@ -71,13 +71,13 @@ To run AI-Artistry locally, you need to connect the front-end with the backend. 
     npm run start
     ```
 
-The website should now be accessible at `http://localhost:3000`, and it will be connected to the backend server running on `http://localhost:5000`.
+The website should now be accessible at `http://localhost:3000`, and it will be connected to the back-end server running on `http://localhost:5000`.
 
-Please ensure that both the front-end and backend servers are running simultaneously for the website to work correctly.
+Please ensure that both the front-end and the back-end servers are running simultaneously for the website to work correctly.
 
 ## Usage
 
-Once you have both the front-end and backend servers running, you can follow the usage instructions to generate and share images using AI-Artistry. Here's a brief guide:
+Once you have both the front-end and the back-end servers running, you can follow the usage instructions to generate and share images using AI-Artistry. Here's a brief guide:
 
 1. On the generate page, enter your prompt in the designated input field.
 2. Click the "Generate" button to trigger the DALL-E AI and generate an image based on your prompt.
