@@ -117,7 +117,7 @@ function PopUp() {
               <h1 className="uppercase main-title-size font-syncopateL">
                 Notice Regarding Photo Generation APIs.
               </h1>
-              <p className="piece-of-info text-white/70 font-ralewayR">
+              <p className="piece-of-info text-white/70 font-ralewayR S">
                 DALL-E put image generation on hold - no free trial without a
                 phone number, and my keys partied too hard. Fixing it soon,
                 hoping DALL-E gives us a hand (or a finger)!
