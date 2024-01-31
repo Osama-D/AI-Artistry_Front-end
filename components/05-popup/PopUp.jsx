@@ -118,12 +118,14 @@ function PopUp() {
                 Notice Regarding Photo Generation APIs.
               </h1>
               <p className="piece-of-info text-white/70 font-ralewayR">
-                The three pinned photos with a small purple square in the top
-                left corner were generated using the Midjourney AI, while the
-                rest were created using OpenAI's DALL-E. Although there is a
-                noticeable difference in quality, the Midjourney API is
-                currently unavailable and its alternatives are not as good, so I
-                am exclusively using OpenAI's DALL-E for new photo generation.
+                DALL-E put image generation on hold - no free trial without a
+                phone number, and my keys partied too hard. Fixing it soon,
+                hoping DALL-E gives us a hand (or a finger)!
+                <br />
+                The three photos with a purple square were made using Midjourney
+                AI, but it's currently unavailable. Despite the quality
+                difference, alternatives don't match up, so I'm relying solely
+                on OpenAI's DALL-E for new photos.
               </p>
             </div>
             <div

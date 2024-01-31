@@ -7,7 +7,7 @@ function Posts({ posts, searchQuery }) {
   // download logic
   function downloadImage($id, photo) {
     const httpsUrl = photo.replace("http://", "https://");
-    FileSaver.saveAs(httpsUrl, `download-${$id}.jpg`);
+    FileSaver.saveAs(httpsUrl, `download.jpg`);
   }
 
   // Filter out duplicate posts to ensure uniquePosts contains only one instance of each post
