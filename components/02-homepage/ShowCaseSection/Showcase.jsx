@@ -52,7 +52,7 @@ function Showcase({ data }) {
           if (isFetching) return;
           setIsFetching(true);
           fetch(
-            `https://ai-artistry-backend.cyclic.app/api/v1/posts/?page=${page}&search=${searchQuery}`
+            `https://ai-artistry-backend.vercel.app/api/v1/posts/?page=${page}&search=${searchQuery}`
           )
             .then((res) => res.json())
             .then((data) => {

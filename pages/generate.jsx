@@ -98,7 +98,7 @@ export default generate;
 // This gets called on every request
 export async function getServerSideProps() {
   const response = await fetch(
-    "https://ai-artistry-backend.cyclic.app/api/v1/posts/recent"
+    "https://ai-artistry-backend.vercel.app/api/v1/posts/recent"
   );
   const data = await response.json();
 

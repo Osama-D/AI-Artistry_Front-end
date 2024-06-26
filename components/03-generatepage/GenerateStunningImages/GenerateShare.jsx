@@ -9,7 +9,7 @@ function GenerateShare({ form, loading, setRecentPosts }) {
     if (form.prompt && form.photo && form.name) {
       setShareLoading(true);
 
-      fetch("https://ai-artistry-backend.cyclic.app/api/v1/posts", {
+      fetch("https://ai-artistry-backend.vercel.app/api/v1/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

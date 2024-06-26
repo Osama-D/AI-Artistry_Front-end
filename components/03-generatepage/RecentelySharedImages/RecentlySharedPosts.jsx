@@ -24,7 +24,7 @@ function RecentlySharedPosts({ data, recentPosts, setRecentPosts }) {
   useEffect(() => {
     if (page > 1) {
       fetch(
-        `https://ai-artistry-backend.cyclic.app/api/v1/posts/recent/?page=${page}`
+        `https://ai-artistry-backend.vercel.app/api/v1/posts/recent/?page=${page}`
       )
         .then((res) => res.json())
         .then((data) => {
