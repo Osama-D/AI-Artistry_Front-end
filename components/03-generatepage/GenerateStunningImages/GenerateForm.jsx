@@ -44,13 +44,16 @@ function GenerateForm({ setRecentPosts }) {
           left: 0,
           behavior: "smooth",
         });
-        const response = await fetch("http://localhost:5000/api/v1/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        const response = await fetch(
+          "https://ai-artistry-backend.vercel.app/api/v1/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt: form.prompt }),
           },
-          body: JSON.stringify({ prompt: form.prompt }),
-        });
+        );
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (error) {
@@ -114,7 +117,7 @@ function GenerateForm({ setRecentPosts }) {
     const newTab = window.open();
 
     newTab?.document.write(
-      `<!DOCTYPE html><head><title>Generated Image Preview</title></head><body><img src="${form.photo}" width="100%" height="100%" ></body></html>`
+      `<!DOCTYPE html><head><title>Generated Image Preview</title></head><body><img src="${form.photo}" width="100%" height="100%" ></body></html>`,
     );
 
     newTab?.document.close();
@@ -336,7 +339,8 @@ function GenerateForm({ setRecentPosts }) {
       >
         <div className="w-full m-auto  h-fit sm:h-[75px] md:h-[100px] flex justify-center items-center text-center px-4 text-white font-ralewayR uppercase">
           <p className="main-paragraph-size py-[22px] sm:py-0">
-            Kindly hold on as your image is in the process of being generated.{" "}
+            Kindly hold on as your image is in the process of being
+            generated.{" "}
           </p>
         </div>
       </div>
