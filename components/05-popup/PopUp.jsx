@@ -123,6 +123,7 @@ function PopUp() {
                 difference, alternatives don't match up, so I'm relying solely
                 on flux-1-schnell for new photos.
               </p>
+              {/* s */}
             </div>
             <div
               onClick={() => setpopUp(false)}
