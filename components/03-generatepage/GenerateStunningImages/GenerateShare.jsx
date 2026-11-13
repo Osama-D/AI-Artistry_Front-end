@@ -9,17 +9,18 @@ function GenerateShare({ form, loading, setRecentPosts }) {
     if (form.prompt && form.photo && form.name) {
       setShareLoading(true);
 
-      fetch("https://ai-artistry-backend.vercel.app/api/v1/posts", {
+      fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/api/v1/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
       })
-        .then((res) => res.json())
-        .then((data) => {
+        .then(async (res) => {
+          const data = await res.json();
+          if (!res.ok || !data.success || !data.data) throw new Error("Unable to share image.");
           // once you shared the desired image put in the state so it gets added instantly in your state (without refreshing the page)
-          setRecentPosts((prevPosts) => [data.data, ...prevPosts]);
+          setRecentPosts((prevPosts) => [data.data, ...prevPosts.filter((post) => post.photo !== data.data.photo)]);
         })
         .catch((error) => {
           console.log("error", error);

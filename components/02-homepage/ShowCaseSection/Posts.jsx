@@ -20,7 +20,7 @@ function Posts({ posts, searchQuery }) {
         {uniquePosts.map((post, idx) => {
           return (
             <div
-              key={idx}
+              key={post.$id ?? post.photo}
               className="w-full h-[250px] sm:h-[300px] md:h-[450px] relative"
             >
               {/* pin those who have pinned === true and not in search Mode */}

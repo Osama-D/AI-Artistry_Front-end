@@ -1,63 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 import Image from "next/image";
 import FileSaver from "file-saver";
 import moment from "moment";
 
 import Loading from "@/components/02-homepage/ShowCaseSection/Loading";
 
+import useGalleryPages from "@/components/02-homepage/ShowCaseSection/useGalleryPages";
+
 function RecentlySharedPosts({ data, recentPosts, setRecentPosts }) {
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-
-  const [ref, inView] = useInView({
-    threshold: 0,
-    triggerOnce: false,
+  const { ref, hasMore, error, retryLoading } = useGalleryPages({
+    data,
+    endpoint: "/api/v1/posts/recent",
+    setPosts: setRecentPosts,
   });
-
-  // when page is loaded setState to data
-  useEffect(() => {
-    setRecentPosts(data.documents);
-  }, [data]);
-
-  // if page bigger than 1 then do an api call bringing me new 8 data
-  useEffect(() => {
-    if (page > 1) {
-      fetch(
-        `https://ai-artistry-backend.vercel.app/api/v1/posts/recent/?page=${page}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          // Filter out any posts that are already included in the recentPosts state - remove any duplicated
-          const filteredData = data?.data?.documents.filter(
-            (post) => !recentPosts.find((p) => p.$id === post.$id)
-          );
-          setRecentPosts((prevPosts) => [...prevPosts, ...filteredData]);
-
-          // if no data set loaders to false
-          if (data?.data?.documents.length === 0) {
-            setLoading(false);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  }, [page]);
-
-  // each time user see the loader the page will jump +1
-  useEffect(() => {
-    if (inView) {
-      setPage((prev) => prev + 1);
-    }
-  }, [inView]);
-
-  // if we retrieved all data don't show loader
-  useEffect(() => {
-    if (recentPosts?.length === data?.total) {
-      setLoading(false);
-    }
-  }, [recentPosts]);
 
   // download logic
   function downloadImage(_id, photo) {
@@ -68,10 +23,10 @@ function RecentlySharedPosts({ data, recentPosts, setRecentPosts }) {
     <div>
       <div className="lining m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[23px] sm:gap-[27px] md:gap-[37px] w-full">
-          {recentPosts?.map((post, idx) => {
+          {recentPosts?.map((post) => {
             return (
               <div
-                key={idx}
+                key={post.$id ?? post.photo}
                 className="w-full h-[250px] sm:h-[300px] md:h-[450px] relative"
               >
                 <div className="overflow-hidden w-full h-[250px] sm:h-[300px] md:h-[450px] group relative">
@@ -144,16 +99,13 @@ function RecentlySharedPosts({ data, recentPosts, setRecentPosts }) {
             );
           })}
         </div>
-        <div
-          ref={ref}
-          className={
-            loading
-              ? "mt-[70px] sm:mt-[80px] md:mt-[100px]"
-              : "hidden mt-[70px] sm:mt-[80px] md:mt-[100px]"
-          }
-        >
-          <Loading />
-        </div>
+        {hasMore && (
+          <div ref={ref} className="mt-[70px] sm:mt-[80px] md:mt-[100px]">
+            {error ? (
+              <button className="text-white" onClick={retryLoading}>Retry loading images</button>
+            ) : <Loading />}
+          </div>
+        )}
       </div>
     </div>
   );

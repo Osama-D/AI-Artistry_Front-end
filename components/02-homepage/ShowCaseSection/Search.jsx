@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-function Search({ setLoading, searchQuery, setSearchQuery }) {
+function Search({ searchQuery, setSearchQuery }) {
   const [highlight, setHighlight] = useState(false);
   const onChange = (e) => {
     setSearchQuery(e.target.value);
-    setLoading(true);
     if (e.target.value.length !== 0) {
       setHighlight(true);
     } else {

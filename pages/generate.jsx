@@ -9,7 +9,7 @@ import RecentlySharedImages from "@/components/03-generatepage/RecentelySharedIm
 import RecentlySharedPosts from "@/components/03-generatepage/RecentelySharedImages/RecentlySharedPosts";
 
 function generate({ data }) {
-  const [recentPosts, setRecentPosts] = useState([]);
+  const [recentPosts, setRecentPosts] = useState(() => data?.documents ?? []);
 
   return (
     <>
@@ -98,7 +98,7 @@ export default generate;
 // This gets called on every request
 export async function getServerSideProps() {
   const response = await fetch(
-    "https://ai-artistry-backend.vercel.app/api/v1/posts/recent"
+    `${process.env.API_SERVER_ORIGIN}/api/v1/posts/recent`
   );
   const data = await response.json();
 

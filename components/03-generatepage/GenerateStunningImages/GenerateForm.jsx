@@ -45,7 +45,7 @@ function GenerateForm({ setRecentPosts }) {
           behavior: "smooth",
         });
         const response = await fetch(
-          "https://ai-artistry-backend.vercel.app/api/v1/dalle",
+          `${process.env.NEXT_PUBLIC_API_ORIGIN}/api/v1/dalle`,
           {
             method: "POST",
             headers: {

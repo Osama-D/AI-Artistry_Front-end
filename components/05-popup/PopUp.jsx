@@ -118,14 +118,10 @@ function PopUp() {
                 Notice Regarding Photo Generation APIs.
               </h1>
               <p className="piece-of-info text-white/70 font-ralewayR">
-                DALL-E put image generation on hold - no free trial without a
-                phone number, and my keys partied too hard. Fixing it soon,
-                hoping DALL-E gives us a hand (or a finger)!
-                <br />
                 The three photos with a purple square were made using Midjourney
                 AI, but it's currently unavailable. Despite the quality
                 difference, alternatives don't match up, so I'm relying solely
-                on OpenAI's DALL-E for new photos.
+                on flux-1-schnell for new photos.
               </p>
             </div>
             <div
